@@ -1,0 +1,105 @@
+﻿<Window x:Class="OneButtonVideoConverter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:local="clr-namespace:OneButtonVideoConverter"
+        mc:Ignorable="d"
+        Title="OBVC" Height="540" Width="420" Background="#2B2929" ResizeMode="NoResize">
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="300"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Margin="10">
+            <StackPanel  Name="inputfolderpanel">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <iconPacks:PackIconForkAwesome Kind="Circle"
+                                 VerticalAlignment="Center"
+                                 HorizontalAlignment="Center" Foreground="#D1C44A" />
+                    <Label FontSize="18" HorizontalAlignment="Center" FontWeight="Bold" Foreground="#E9DDDD">Choose file</Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox  x:Name="textboxInputFile" IsReadOnly="True" FontSize="18" Width="300" BorderThickness="0" Background="#4C4949" Foreground="#AEACAC" Style="{DynamicResource TextBoxStyleRoundedLeft}">File not selected</TextBox>
+                    <Button Template="{DynamicResource ButtonTemplateRnd}"  x:Name="ChooseFileBtn" Background="#626262" Width="80" BorderThickness="0" Click="ChooseFileBtn_Click">
+                        <iconPacks:PackIconForkAwesome Kind="FileVideoOutline"
+                                 VerticalAlignment="Center"
+                                 HorizontalAlignment="Center" Foreground="#AEACAC" />
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+            
+
+
+            <StackPanel Name="outputfolderpanel" IsEnabled="False">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                    <iconPacks:PackIconForkAwesome Kind="Circle"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center" Foreground="#D1C44A" />
+                    <Label FontSize="18" HorizontalAlignment="Center" FontWeight="Bold" Foreground="#E9DDDD">Choose output folder</Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="outFolderTextBox" IsReadOnly="True" FontSize="18" Width="300" BorderThickness="0" Background="#4C4949" Foreground="#AEACAC" Style="{DynamicResource TextBoxStyleRoundedLeft}">Folder not selected</TextBox>
+                    <Button Template="{DynamicResource ButtonTemplateRnd}" x:Name="ChooseOutputFolderBtn"  Background="#626262" Width="80" BorderThickness="0" Click="ChooseOutputFolderBtn_Click">
+                        <iconPacks:PackIconForkAwesome Kind="FolderOpen"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center" Foreground="#AEACAC" />
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+
+
+            <StackPanel Name="fileformatsettings" IsEnabled="False">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <iconPacks:PackIconForkAwesome Kind="Circle"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center" Foreground="#D1C44A" />
+                    <Label FontSize="18" HorizontalAlignment="Center" FontWeight="Bold" Foreground="#E9DDDD">Choose output file settings</Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" >
+                    <Label FontSize="18" HorizontalAlignment="Center" Foreground="#E9DDDD">Choose video format:</Label>
+                    <ComboBox Style="{DynamicResource ComboBoxStyle1}" Name="fileFormatComboBox" Width="200" BorderThickness="0" FontSize="18" Background="#4C4949" Foreground="White"></ComboBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <Label FontSize="18" HorizontalAlignment="Center" Foreground="#E9DDDD">Choose video resolution:</Label>
+                    <ComboBox Style="{DynamicResource ComboBoxStyle1}" Name="fileResolutionComboBox" Width="175" BorderThickness="0" FontSize="18" Background="#4C4949" Foreground="White"></ComboBox>
+                </StackPanel>
+                <ProgressBar Style="{DynamicResource ProgressBarStyle1}" x:Name="progressBarConverter" Foreground="#D3790F" Height="30" Margin="0,10,0,0" BorderThickness="0" Background="#4C4949"></ProgressBar>
+            </StackPanel>
+            
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" >
+            <Button Height="80" BorderThickness="0" Style="{DynamicResource ButtonStyleMainRnd}" Grid.Row="1" Margin="20,0,20,10" Name="ConvertVideoButton" Click="ConvertVideoButton_Click" IsEnabled="False" Background="#D4790F">
+                <StackPanel Orientation="Horizontal">
+                    <iconPacks:PackIconBootstrapIcons Kind="CaretRightFill"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center" Foreground="#2B2929" Height="50" Width="50"/>
+                    <Label FontSize="25" FontWeight="Bold" Foreground="#2B2929">Convert</Label>
+                </StackPanel>
+            </Button>
+            <!--<Button Height="35" Style="{DynamicResource ButtonStyleMainRnd}" Grid.Row="1" Margin="50,10,50,00" Name="SupportDev"  IsEnabled="True" Background="#D4790F" FontSize="18" FontWeight="Bold" Foreground="#2B2929" Click="SupportDev_Click">
+                Support the developer
+            </Button>
+            <Button Height="35" Style="{DynamicResource ButtonStyleMainRnd}" Grid.Row="1" Margin="50,10,50,10" Name="MyWebsite"  IsEnabled="True" Background="#D4790F" FontSize="18" FontWeight="Bold" Foreground="#2B2929" Click="MyWebsite_Click">
+                My Website
+            </Button>-->
+            <TextBlock HorizontalAlignment="Center" FontSize="22" Margin="0,10,0,10" FontWeight="Bold" Foreground="#D4790F">           
+                <Hyperlink Foreground="#D4790F" NavigateUri="https://boosty.to/errorvdept" RequestNavigate="Hyperlink_RequestNavigate">
+                    Support the developer
+                </Hyperlink>
+             </TextBlock>
+            <TextBlock HorizontalAlignment="Center" FontSize="22" Margin="0,10,0,0" FontWeight="Bold" Foreground="#D4790F">           
+                <Hyperlink Foreground="#D4790F" NavigateUri="https://errorvdept.github.io" RequestNavigate="Hyperlink_RequestNavigate">
+                    My Website
+                </Hyperlink>
+            </TextBlock>
+        </StackPanel>
+        
+    </Grid>
+</Window>
