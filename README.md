@@ -5,7 +5,7 @@
 
 
 This is a simple and free video converter. If you need to change the video format quickly and without unnecessary settings, this is your choice
-![Chat Preview](http://i.imgur.com/lgRe8z4.png)
+![Converter Preview]([http://i.imgur.com/lgRe8z4.png](https://github.com/ErrorVdept/OneButtonVideoConverter/blob/main/preview.png))
 
 ---
 
